@@ -1,0 +1,30 @@
+﻿@model  BeautyHub.Entities.SocialLink
+
+@using HtmlHelpers.BeginCollectionItem;
+
+<tr id="newQualification">
+    @using (Html.BeginCollectionItem("socialLinks"))
+    {
+       
+        <td class="col-md-4">
+            @Html.EditorFor(model => model.LinkName, new { htmlAttributes = new { @class = "form-control col-md-12" } })
+            @Html.ValidationMessageFor(model => model.LinkName, "", new { @class = "text-danger" })
+        </td>
+        <td class="col-md-3">
+            @Html.EditorFor(model => model.Link, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Link, "", new { @class = "text-danger" })
+        </td>
+        <td class="col-md-2">
+            <input type="file" name="icon" />
+            @Html.ValidationMessageFor(model => model.Icon, "", new { @class = "text-danger" })
+        </td>
+        <td id="buttonContainer" class="col-md-1">
+            <button type="button" id="addQualification" onclick="addRow()" class="bg-primary" style="color:white;">+</button>
+            <button type="button" id="removeQualification" onclick="removeRow(this)" class="bg-danger" style="color:white;">-</button>
+        </td>
+    }
+</tr>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+</script>
